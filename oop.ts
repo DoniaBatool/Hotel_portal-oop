@@ -76,13 +76,14 @@ async function myHotel() {
         },
     ])
         
-        let matchName=finalArray.find((element)=>{element.fullName.toUpperCase().includes(answers.givenName.toUpperCase())})
+        let matchName=finalArray.find((element)=>{element.fullName.toUpperCase()===(answers.givenName.toUpperCase())})
         console.log(matchName)
-        let matchPassportNumber=finalArray.find((element)=>{element.passportNumber===+answers.givenPassportNumber})
+        let matchPassportNumber=finalArray.find((element)=>{element.passportNumber===answers.givenPassportNumber})
         console.log(matchPassportNumber)
-        let matchOrigin=finalArray.find((element)=>{element.fullName.toUpperCase().includes(answers.givenName.toUpperCase())})
+        let matchOrigin=finalArray.find((element)=>{element.origin.toUpperCase()===(answers.givenOrigin.toUpperCase())})
         console.log(matchOrigin)
-    if (matchName && matchPassportNumber && matchPassportNumber) {
+        
+    if (matchName && matchPassportNumber && matchOrigin) {
         const response = await inquirer.prompt([{
             type: "list",
             name: "rating",

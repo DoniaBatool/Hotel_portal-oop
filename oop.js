@@ -45,13 +45,13 @@ async function myHotel() {
             message: "Enter The Country of Origin: "
         },
     ]);
-    let matchName = finalArray.find((element) => { element.fullName.toUpperCase().includes(answers.givenName.toUpperCase()); });
+    let matchName = finalArray.find((element) => { element.fullName.toUpperCase() === (answers.givenName.toUpperCase()); });
     console.log(matchName);
-    let matchPassportNumber = finalArray.find((element) => { element.passportNumber === +answers.givenPassportNumber; });
+    let matchPassportNumber = finalArray.find((element) => { element.passportNumber === answers.givenPassportNumber; });
     console.log(matchPassportNumber);
-    let matchOrigin = finalArray.find((element) => { element.fullName.toUpperCase().includes(answers.givenName.toUpperCase()); });
+    let matchOrigin = finalArray.find((element) => { element.origin.toUpperCase() === (answers.givenOrigin.toUpperCase()); });
     console.log(matchOrigin);
-    if (matchName !== undefined && matchPassportNumber !== undefined && matchPassportNumber !== undefined) {
+    if (matchName && matchPassportNumber && matchOrigin) {
         const response = await inquirer.prompt([{
                 type: "list",
                 name: "rating",
@@ -73,25 +73,3 @@ async function myHotel() {
     }
 }
 myHotel();
-// return [`${res+random1}`]
-// }
-// else if(answers===random2){
-//     console.log("Thankyou For Rating Us!\n")
-//     console.log(`Your response has been recorded ${res}\n${random2}`)
-//     }
-//  else if(answers===random3){
-//         console.log("Thankyou For Rating Us!\n")
-//         console.log(`Your response has been recorded ${res}\n${random3}`)
-//         }
-//        else if(answers===random4){
-//             console.log("Thankyou For Rating Us!\n")
-//             console.log(`Your response has been recorded ${res}\n${random4}`)
-//             }
-//            else if(answers===random5){
-//                 console.log("Thankyou For Rating Us!\n")
-//                 console.log(`Your response has been recorded ${res}\n${random5}`)
-//                 }
-//             else{
-//     console.log("Reviews and Rating could be better expressed once you'll let us host you at our Hotel.")
-// }
-//   }}
